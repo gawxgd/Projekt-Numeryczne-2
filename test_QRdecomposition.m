@@ -1,8 +1,13 @@
+% Testy czy otrzymanae Q i R są rozkładem QR 
+% czy QR = A
+% czy Q ma ortonormalne kolumny i Q' * Q = I
+% czy R jest górno trójkątna i nie ma zer na diagonali
+% złożoność 2mn^2 - (2/3)n^3
 disp("QR decomposition Test")
 disp("decomposition of A = ")
 A = [63,41,-88;42,60,51;0,-28,56;126,82,-71];
 disp(A)
-[Q,R] = QRdecompositionbing(A);
+[Q,R] = QRdecomposition(A);
 Q
 R
 correctQ = 1/21 .* [-9,-6,0,-18;2,-15,14,4;10,-12,-14,-1;-16,-6,-7,10];
@@ -11,6 +16,7 @@ disp("correct Q = ")
 disp(correctQ)
 disp("correct R = ")
 disp(correctR)
+input("Press Enter");
 disp("Q error = ")
 Qerror = abs(Q - correctQ);
 disp(Qerror)
@@ -22,11 +28,17 @@ disp(Rerror)
 disp("R error mean")
 disp(mean(Rerror,'all'))
 input("Press Enter");
+disp(Q*R)
+disp(abs(Q*R - A))
+disp(triu(R)-R)
+disp(Q' * Q)
+input("Press Enter");
+
 
 disp("decomposition of A = ")
 A = [12,-51,4;6,167,-68;-4,24,-41];
 disp(A)
-[Q,R] = QRdecompositionbing(A);
+[Q,R] = QRdecomposition(A);
 Q
 R
 %correctQ = [0.8571,-0.3943,0.3314;0.4286,0.9029,...
@@ -37,6 +49,8 @@ disp("correct Q = ")
 disp(correctQ)
 disp("correct R = ")
 disp(correctR)
+input("Press Enter");
+
 disp("Q error = ")
 Qerror = abs(Q - correctQ);
 disp(Qerror)
@@ -47,5 +61,20 @@ Rerror = abs(R - correctR);
 disp(Rerror)
 disp("R error mean")
 disp(mean(Rerror,'all'))
-
-
+input("Press Enter");
+disp(Q*R)
+disp(abs(Q*R - A))
+disp(triu(R)-R)
+disp(Q' * Q)
+input("Press Enter");
+disp("Test 3")
+A = [1,1,0;-1,0,1;0,1,1;0,0,1]
+[Q,R] = QRdecomposition(A);
+Q
+R
+correctQ = 1/sqrt(6) * [sqrt(3),1,0;-sqrt(3),1,0;0,2,0;0,0,sqrt(6)]
+correctR = 1/sqrt(2) * [2,1,-1;0,sqrt(3),sqrt(3);0,0,sqrt(2)]
+disp(Q * R)
+disp(triu(R)-R)
+disp(Q' * Q)
+input("Press Enter");

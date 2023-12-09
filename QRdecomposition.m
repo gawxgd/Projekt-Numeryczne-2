@@ -1,21 +1,34 @@
 function [Q,R] = QRdecomposition(A)
+    % tylko dla A rzeczywistych
     [m,n] = size(A);
+    if(m<n)
+        temp = m;
+        m = n;
+        n = temp;
+    end
     Q = eye(m);
-    R = A;
+    tempMatrix = zeros(m);
     for j=1:n
         % Obliczenie normy
-        normx = norm(R(j:end,j));
+        y = A(j:end,j);
+        normY = norm(y);
         % ustalenie znaku
-        s = -sign(R(j,j));
+        s = sign(y(1));
         % obliczenie wektora u
-        u1 = R(j,j) - s * normx;
-        w = R(j:end,j) / u1;
-        w(1) = 1;
-        tau = -s * u1 / normx;
-        % -- R := HR, Q := QH
-        R(j:end,:) = R(j:end,:) - (tau * w) * (w' * R(j:end,:));
-        Q(:,j:end) = Q(:,j:end) - (Q(:,j:end) * w) * (tau * w');
+        w = y + s * normY * eye(size(y,1),1);
+        v = w ./ norm(w);
+        ref = 2*(v*v');
+        tempMatrix(j:end,j:end) = ref;
+        % Generating Househoulder Matrix
+        H = eye(m) - tempMatrix;
+        % Calculating new matrix A using H*A
+        A = H*A;
+        % Calculating orthogonal matrix, Q using Q=H1*H2*....*Hn
+        Q = Q*H;
+        tempMatrix = zeros(m);
+        %A(j:m,j:n) = A(j:m,j:n) - 2 * v * (v' * A(j:m,j:n));
     end
+    R = A;
     %Q = Q';
     
     

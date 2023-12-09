@@ -6,7 +6,7 @@ function [eigenValue] = P2Z09_MGR_odwrotnaMetodaPotegowa(A,epsilon)
     if isreal(A)
         realFlag = 1;
     end
-    [Q,R] = qr(A); % przetestować z moim QR
+    [Q,R] = QRdecomposition(A); % przetestować z moim QR
     % Generowanie losowego wektora startowego
     xPrev = rand(length(A),1);
     xn = xPrev;

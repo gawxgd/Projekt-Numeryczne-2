@@ -1,9 +1,0 @@
-disp("QR decomposition Test")
-disp("decomposition of A = ")
-A = [63,41,-88;42,60,51;0,-28,56;126,82,-71];
-disp(A)
-[Q,R] = QRdecomposition(A);
-Q
-R
-correctQ = 1/21 .* [-9,-6,0,-18;2,-15,14,4;10,-12,-14,-1;-16,-6,-7,10];
-correctR = 21 * [-7,-5,4]
