@@ -78,3 +78,27 @@ disp(Q * R)
 disp(triu(R)-R)
 disp(Q' * Q)
 input("Press Enter");
+
+disp("Test dla macierzy zespolonej")
+A = [3i,2-2i;4+7i,-1+5i]
+[Q,R] = QRdecomposition(A);
+Q
+R
+disp("Czy QR = A")
+disp(Q*R)
+disp("Czy R jest górno trójkątna")
+disp(triu(R)-R)
+disp("Czy Q jest ortonormalna")
+disp(Q'*Q)
+
+disp("Test ")
+A = [4,0,0;0,1,1;0,1,1]
+[Q,R] = QRdecomposition(A);
+Q
+R
+disp("Czy QR = A")
+disp(Q*R)
+disp("Czy R jest górno trójkątna")
+disp(triu(R)-R)
+disp("Czy Q jest ortonormalna")
+disp(Q'*Q)

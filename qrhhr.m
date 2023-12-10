@@ -42,11 +42,11 @@ z = zeros(m);
         Dummy = 2*(v*v');
         z(j:end,j:end) = Dummy;
         % Generating Househoulder Matrix
-        H = eye(m) - z;
+        H = eye(m) - z
         % Calculating new matrix A using H*A
-        A = H*A;
+        A = H*A
         % Calculating orthogonal matrix, Q using Q=H1*H2*....*Hn
-        Q = Q*H;
+        Q = Q*H
         z = zeros(m);
     end
   
