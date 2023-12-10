@@ -1,6 +1,6 @@
 % Czy dokładność zgadza się z zadaną tolerancją
 disp("Testy obliczania najmniejszej wartości własnej")
-maxIT = 100;
+maxIT = 1000;
 A = [6,5,-5;2,6,-2;2,5,-1]
 disp("correct eigen value: 1")
 disp("computed eigen value: ")
