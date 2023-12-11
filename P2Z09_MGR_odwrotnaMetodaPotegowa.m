@@ -1,26 +1,43 @@
 function [eigenValue] = P2Z09_MGR_odwrotnaMetodaPotegowa(A,epsilon,maxIT)
-    if(det(A)==0)
+    % Projekt 2, zadanie 09
+    % Marcin Gronicki, 327351
+    %
+    % Próba znalezienia najmniejszej (co do wartości bezwględnej) wartości
+    % własnej odwracalnej kwadratowej macierzy rzeczywistej lub zespolonej,
+    % w przypadku podania na wejście macierzy o zerowym wyznaczniku 
+    % program zwraca []. Metoda przy rozwiąywaniu układów równań w każdej
+    % iteracji korzysta z obliczonego wcześniej rozkładu QR otrzymanego
+    % przy użyciu odbić Householdera
+    % Wejście:
+    %   - A - kwadratowa odwracalna macierz rzeczywista lub zespolona 
+    %   - epsilon - tolerancja błędu
+    %   - maxIT - maksymalna ilość iteracji
+    % Wyjście:
+    %   - eigenValue - szukana najmniejsza wartość własna co do modułu
+    
+    % Sprawdzenie czy macierz ma niezerowy wyznacznik
+    if(det(A) == 0)
         eigenValue = [];
         return;
     end
-    % macierz musi mieć dominująca wartość własną
-    % i n liniowo niezależnych wektorów własnych
-    [Q,R] = QRdecomposition(A); % przetestować z moim QR
+    % Obliczenie rozkładu QR
+    [Q,R] = QRdecomposition(A); 
     % Generowanie losowego wektora startowego
     x = rand(length(A),1);
-    % Startowe wartości, żeby wykonała się pierwsza iteracja
+    % Startowe wartości
     it = 0;
     stopCondErr = Inf;
     % Warunek stopu to różnica między poprzednią wartością a aktualną
     while it < maxIT && stopCondErr > epsilon
-        % normowaniew wektora
+        % Normowaniew wektora
         x =  x ./ norm(x,2);
-        % rozwiązanie układu równań
+        % Rozwiązanie układu równań
         z = x / norm(x,2);
         y = Q \ z;
         x = R \ y;
-        % obliczenie wartości własnej dla tej iteracji
+        % Obliczenie wartości własnej dla tej iteracji
         eigenValue = z' * x;
+        % Aktualizacja warunku stopu
         if it > 1
              stopCondErr = abs(eigenValue - eigenValuePrev)...
                  / abs(eigenValuePrev);
@@ -28,5 +45,6 @@ function [eigenValue] = P2Z09_MGR_odwrotnaMetodaPotegowa(A,epsilon,maxIT)
         it = it + 1;
         eigenValuePrev = eigenValue;
     end
+    % Odwrócenie znalezionej wartości własnej
     eigenValue = 1 / eigenValue;
     
