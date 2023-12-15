@@ -51,7 +51,7 @@ eigenValue = P2Z09_MGR_odwrotnaMetodaPotegowa(A,1e-14,maxIT);
 disp(eigenValue)
 error = abs(0 - eigenValue)
 
-disp("Czy metoda nie jest zbieżna")
+disp("Czy metoda nie jest zbieżna, dwie najmniejsze wartości")
 A = [0,-1;1,0]
 disp("correct eigen value 0 - 1i")
 disp("computed eigen value: ")
@@ -60,25 +60,25 @@ disp(eigenValue)
 error = abs(0-1i - eigenValue)
 
 disp("TEst")
-A = [2+i,1,0,0,1;1,3-i,1,0,0;0,1,4+3i,0,0;0,0,0,1+2i,1;1,0,0,1,5];
+A = [2+i,1,0,0,1;1,3-i,1,0,0;0,1,4+3i,0,0;0,0,0,1+2i,1;1,0,0,1,5]
 disp("correct eigen value 1.3935 + 0.6445i")
 disp("computed eigen value: ")
 eigenValue = P2Z09_MGR_odwrotnaMetodaPotegowa(A,1e-14,maxIT);
 disp(eigenValue)
 error = abs(1.3935 + 0.6445i - eigenValue)
 
-disp("Czy metoda nie jest zbieżna")
-A = [-3 1 0; 4 0 3; 0 -3 -3]
-disp("correct eigen value -1.5000 - 1.6583i")
+disp("Czy nie jest zbieżna, dwie najmniejsze wartości")
+A = [-3 1 0; 1 0 3; 0 -3 -3]
+disp("correct eigen value -1.5000 - 2.3979i")
 disp("computed eigen value: ")
 eigenValue = P2Z09_MGR_odwrotnaMetodaPotegowa(A,1e-14,maxIT);
 disp(eigenValue)
-error = abs(-1.5000 - 1.6583i - eigenValue)
+error = abs(-1.5000 - 2.3979i - eigenValue)
 
-disp("Czy metoda nie jest zbieżna")
-A = [-3 1 0; 4 0 3; 0 -3 -3]
-disp("correct eigen value -1.5000 - 1.6583i")
+disp("Czy nie jest zbieżna, dwie najmniesjsze wartości")
+A = [-3 0 0; 0 0 1; 0 -1 0]
+disp("correct eigen value 0.0000 - 1.0000i")
 disp("computed eigen value: ")
 eigenValue = P2Z09_MGR_odwrotnaMetodaPotegowa(A,1e-14,maxIT);
 disp(eigenValue)
-error = abs(-1.5000 - 1.6583i - eigenValue)
+error = abs(0.0000 - 1.0000i - eigenValue)
