@@ -3,11 +3,12 @@ function [eigenValue,error,itCount] = P2Z09_MGR_odwrotnaMetodaPotegowa(A,epsilon
     % Marcin Gronicki, 327351
     %
     % Próba znalezienia najmniejszej (co do wartości bezwględnej) wartości
-    % własnej odwracalnej kwadratowej macierzy rzeczywistej lub zespolonej,
-    % w przypadku podania na wejście macierzy o zerowym wyznaczniku 
-    % program zwraca w każdym argumencie wyjściowym []. Metoda przy 
+    % własnej odwracalnej kwadratowej macierzy rzeczywistej lub zespolonej.
+    % Przy użyciu odwrotnej metody potęgowej z normowaniem. Metoda przy 
     % rozwiązywaniu układów równań w każdej iteracji korzysta z obliczonego
-    % wcześniej rozkładu QR otrzymanego przy użyciu odbić Householdera
+    % wcześniej rozkładu QR otrzymanego przy użyciu odbić Householdera. W
+    % przypadku podania na wejście nie odwracalnej macierzy, program zwraca
+    % na każdym wyjściu [].
     % Wejście:
     %   - A - kwadratowa odwracalna macierz rzeczywista lub zespolona 
     %   - epsilon - tolerancja błędu
