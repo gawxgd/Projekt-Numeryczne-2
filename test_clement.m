@@ -14,7 +14,7 @@ for i=2:n
     eigen = min(abs(eig(A)));
     disp(["correct eig = ",eigen])
     computed = P2Z09_MGR_odwrotnaMetodaPotegowa(A,1e-14,10000)
-    error = abs(computed - eigen)
+    error = abs(abs(computed) - eigen)
     input("press enter");
 end
 
