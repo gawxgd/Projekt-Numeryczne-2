@@ -4,28 +4,26 @@ function [Q,R] = QRdecomposition(A)
     % 
     % Funkcja wykonuje rozkład QR macierzy A przy użyciu odbić Householdera
     % Wejście:
-    %   - A macierz której rozkład wykonujemy
+    %   - A macierz kwadratowa której rozkład wykonujemy
     % Wyjście:
     %   - Q - macierz unitarna
     %   - R - macierz górnotrójkątna
 
     % Uzyskanie wymiarów macierzy A
     [m,n] = size(A);
-    iTer = n;
     % Ustawienie ilości iteracji for w zależności od wymiarów A
-    if(m <= n)
-        iTer = m - 1;
-    end
+    
     % Inicjalizacja macierzy
     Q = eye(m,m);
     tempMatrix = zeros(m);
     R = zeros(m,n);
-    for j=1:iTer
+    for j=1:min(m,n)
         % Obliczenie wektora
         y = A(j:end,j);
-        w = y + sign(A(j,j)) * norm(y) * eye(size(y,1),1);
-        v = w / norm(w);
-        ref = 2 * (v * v');
+        w = y + sign(y(1)) * norm(y) * eye(size(y,1),1);
+       % v = w / norm(w);
+        v = w;
+        ref = 2 * (v * v') ./ (v' * v); % dotąd git 
         tempMatrix(j:end,j:end) = ref;
         % Generowanie macierzy Householdera
         H = eye(m) - tempMatrix;
@@ -41,6 +39,7 @@ function [Q,R] = QRdecomposition(A)
             R(i,j) = A(i,j);
         end
     end
+ 
     
     
     

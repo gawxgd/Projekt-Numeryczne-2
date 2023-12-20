@@ -26,7 +26,7 @@ function [eigenValue,error,itCount] = P2Z09_MGR_odwrotnaMetodaPotegowa(A,epsilon
         return;
     end
     % Obliczenie rozkładu QR
-    [Q,R] = QRdecomposition(A); 
+    [Q,R] = QRdecompositionv2(A); 
     % Generowanie losowego wektora startowego
     x = rand(length(A),1);
     % Startowe wartości

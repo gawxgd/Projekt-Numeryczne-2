@@ -1,3 +1,4 @@
+clear
 % Czy dokładność zgadza się z zadaną tolerancją
 disp("Testy obliczania najmniejszej wartości własnej")
 maxIT = 1000;
