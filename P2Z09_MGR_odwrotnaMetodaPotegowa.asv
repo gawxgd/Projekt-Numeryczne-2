@@ -11,19 +11,19 @@ function [eigenValue,error,itCount,eigenValueTab,eigenVectorTab] = ...
     % przypadku podania na wejście nie odwracalnej macierzy, program zwraca
     % na każdym wyjściu 0.
     % Wejście:
-    %   - A - kwadratowa odwracalna macierz rzeczywista lub zespolona. 
-    %   - epsilon - tolerancja błędu.
-    %   - maxIT - maksymalna ilość iteracj.
-    %   - xStart - wektor startowy do metody, domyślnie wektor losowy.
+    %   - A - kwadratowa odwracalna macierz rzeczywista lub zespolona 
+    %   - epsilon - tolerancja błędu
+    %   - maxIT - maksymalna ilość iteracj
+    %   - xStart - wektor startowy do metodym
     % Wyjście:
-    %   - eigenValue - szukana najmniejsza wartość własna co do modułu.
+    %   - eigenValue - szukana najmniejsza wartość własna co do modułu
     %   - error - błąd między wartościami własnymi wyznaczonymi w dwóch
-    %   ostatnich iteracjach.
+    %   ostatnich iteracjach
     %   - itCount - liczba wykonanych iteracji
     %   - eigenValueTab - poziomy wektor kolejnych przybliżeń najmniejszej
     %   wartości własnych.
     %   - eigenVectorTab - poziomy wektor kolejnych wyznaczonych przybliżeń
-    %   wektorów własnych.
+    %   wektorów własnych
     
     % Sprawdzenie czy macierz ma niezerowy wyznacznik
     if(det(A) == 0)
@@ -35,13 +35,9 @@ function [eigenValue,error,itCount,eigenValueTab,eigenVectorTab] = ...
         return;
     end
     % Obliczenie rozkładu QR
-    [Q,R] = QRdecompositionv2(A); 
+    [Q,R] = QRdecomposition(A); 
     % Generowanie losowego wektora startowego
-    if nargin < 4
-        x = rand(length(A),1);
-    else
-        x = xStart;
-    end
+    x = rand(length(A),1);
     % Startowe wartości
     it = 0;
     stopCondErr = Inf;
@@ -57,8 +53,7 @@ function [eigenValue,error,itCount,eigenValueTab,eigenVectorTab] = ...
         x = R \ y;
         % Obliczenie wartości własnej dla tej iteracji
         eigenValue = z' * x;
-        eigenValueTab(it+1) = eigenValue;
-        eigenVectorTab(it+1) = x;
+        eigenValueTab(it) = eigenValue;
         % Aktualizacja warunku stopu
         if it > 1
              stopCondErr = abs(eigenValue - eigenValuePrev)...

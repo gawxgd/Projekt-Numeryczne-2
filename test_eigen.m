@@ -5,7 +5,7 @@ maxIT = 1000;
 A = [6,5,-5;2,6,-2;2,5,-1]
 disp("correct eigen value: 1")
 disp("computed eigen value: ")
-[eigenValue,errorFun,it] = P2Z09_MGR_odwrotnaMetodaPotegowa(A,1e-14,maxIT);
+[eigenValue,errorFun,it,~,~] = P2Z09_MGR_odwrotnaMetodaPotegowa(A,1e-14,maxIT);
 disp(eigenValue)
 disp("computed error")
 disp(errorFun)
@@ -16,7 +16,7 @@ error = abs(1 - eigenValue)
 A = [12,-51,4;6,167,-68;-4,24,-41]
 disp("correct eigen value 16.0600")
 disp("computed eigen value: ")
-[eigenValue,errorFun,it] = P2Z09_MGR_odwrotnaMetodaPotegowa(A,1e-14,maxIT);
+[eigenValue,errorFun,it,~,~] = P2Z09_MGR_odwrotnaMetodaPotegowa(A,1e-14,maxIT);
 disp(eigenValue)
 disp("computed error")
 disp(errorFun)
@@ -28,7 +28,7 @@ error = abs(16.0600 - eigenValue)
 A = [2,0,0;0,2,0;0,0,1]
 disp("correct eigen value 1")
 disp("computed eigen value: ")
-[eigenValue,errorFun,it] = P2Z09_MGR_odwrotnaMetodaPotegowa(A,1e-14,maxIT);
+[eigenValue,errorFun,it,~,~] = P2Z09_MGR_odwrotnaMetodaPotegowa(A,1e-14,maxIT);
 disp(eigenValue)
 disp("computed error")
 disp(errorFun)
@@ -40,7 +40,7 @@ disp("Test dla macierzy bez dominującej wartości własnej")
 A = [1,0,0,0;0,1,0,0;0,0,2,0;0,0,0,2]
 disp("correct eigen value 1")
 disp("computed eigen value: ")
-[eigenValue,errorFun,it] = P2Z09_MGR_odwrotnaMetodaPotegowa(A,1e-14,maxIT);
+[eigenValue,errorFun,it,~,~] = P2Z09_MGR_odwrotnaMetodaPotegowa(A,1e-14,maxIT);
 disp(eigenValue)
 disp("computed error")
 disp(errorFun)
@@ -51,7 +51,7 @@ error = abs(1 - eigenValue)
 A = [12,0,0,0;0,41,0,0;0,0,9,0;0,0,0,1021]
 disp("correct eigen value 9")
 disp("computed eigen value: ")
-[eigenValue,errorFun,it] = P2Z09_MGR_odwrotnaMetodaPotegowa(A,1e-14,maxIT);
+[eigenValue,errorFun,it,~,~] = P2Z09_MGR_odwrotnaMetodaPotegowa(A,1e-14,maxIT);
 disp(eigenValue)
 disp("computed error")
 disp(errorFun)
@@ -62,7 +62,7 @@ error = abs(9 - eigenValue)
 A = [4,1;2,3]
 disp("correct eigen value 2")
 disp("computed eigen value: ")
-[eigenValue,errorFun,it] = P2Z09_MGR_odwrotnaMetodaPotegowa(A,1e-14,maxIT);
+[eigenValue,errorFun,it,~,~] = P2Z09_MGR_odwrotnaMetodaPotegowa(A,1e-14,maxIT);
 disp(eigenValue)
 disp("computed error")
 disp(errorFun)
@@ -75,7 +75,7 @@ error = abs(2 - eigenValue)
 A = [4,0,0;0,1,1;0,1,1]
 disp("correct eigen value 0")
 disp("computed eigen value: ")
-[eigenValue,errorFun,it] = P2Z09_MGR_odwrotnaMetodaPotegowa(A,1e-14,maxIT);
+[eigenValue,errorFun,it,~,~] = P2Z09_MGR_odwrotnaMetodaPotegowa(A,1e-14,maxIT);
 disp(eigenValue)
 disp("computed error")
 disp(errorFun)
@@ -87,7 +87,7 @@ disp("Czy metoda nie jest zbieżna, dwie najmniejsze wartości")
 A = [0,-1;1,0]
 disp("correct eigen value 0 - 1i")
 disp("computed eigen value: ")
-[eigenValue,errorFun,it] = P2Z09_MGR_odwrotnaMetodaPotegowa(A,1e-14,maxIT);
+[eigenValue,errorFun,it,~,~] = P2Z09_MGR_odwrotnaMetodaPotegowa(A,1e-14,maxIT);
 disp(eigenValue)
 disp("computed error")
 disp(errorFun)
@@ -99,7 +99,7 @@ disp("TEst")
 A = [2+i,1,0,0,1;1,3-i,1,0,0;0,1,4+3i,0,0;0,0,0,1+2i,1;1,0,0,1,5]
 disp("correct eigen value 1.3935 + 0.6445i")
 disp("computed eigen value: ")
-[eigenValue,errorFun,it] = P2Z09_MGR_odwrotnaMetodaPotegowa(A,1e-14,maxIT);
+[eigenValue,errorFun,it,~,~] = P2Z09_MGR_odwrotnaMetodaPotegowa(A,1e-14,maxIT);
 disp(eigenValue)
 disp("computed error")
 disp(errorFun)
@@ -111,7 +111,7 @@ disp("Czy nie jest zbieżna, dwie najmniejsze wartości")
 A = [-3 1 0; 1 0 3; 0 -3 -3]
 disp("correct eigen value -1.5000 - 2.3979i")
 disp("computed eigen value: ")
-[eigenValue,errorFun,it] = P2Z09_MGR_odwrotnaMetodaPotegowa(A,1e-14,maxIT);
+[eigenValue,errorFun,it,~,~] = P2Z09_MGR_odwrotnaMetodaPotegowa(A,1e-14,maxIT);
 disp(eigenValue)
 disp("computed error")
 disp(errorFun)
@@ -123,7 +123,7 @@ disp("Czy nie jest zbieżna, dwie najmniesjsze wartości")
 A = [-3 0 0; 0 0 1; 0 -1 0]
 disp("correct eigen value 0.0000 - 1.0000i")
 disp("computed eigen value: ")
-[eigenValue,errorFun,it] = P2Z09_MGR_odwrotnaMetodaPotegowa(A,1e-14,maxIT);
+[eigenValue,errorFun,it,~,~] = P2Z09_MGR_odwrotnaMetodaPotegowa(A,1e-14,maxIT);
 disp(eigenValue)
 disp("computed error")
 disp(errorFun)
