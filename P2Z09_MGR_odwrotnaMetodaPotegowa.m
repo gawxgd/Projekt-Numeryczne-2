@@ -65,6 +65,10 @@ function [eigenValue,error,itCount,eigenValueTab,eigenVectorTab] = ...
         if it > 1
              stopCondErr = abs(eigenValue - eigenValuePrev)...
                  / abs(eigenValuePrev);
+             if isnan(stopCondErr)
+                 stopCondErr = Inf;
+             end
+             % co jak dzielenie przez 0 ?
         end
         it = it + 1;
         eigenValuePrev = eigenValue;

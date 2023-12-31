@@ -6,8 +6,8 @@ eigen = min(eig(A))
 computed = P2Z09_MGR_odwrotnaMetodaPotegowa(A,1e-10,1000);
 disp(computed)
 
-n = 5;
-for i=2:n
+n = 100;
+for i=2:10:n
     fprintf("wilkinson matrix %dx%d",i)
     A = wilkinson(i);
     [v,d] = eig(A)

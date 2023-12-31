@@ -1,4 +1,4 @@
-clear
+
 % Czy dokładność zgadza się z zadaną tolerancją
 disp("Testy obliczania najmniejszej wartości własnej")
 maxIT = 1000;
@@ -11,8 +11,9 @@ disp("computed error")
 disp(errorFun)
 disp("count of iterations")
 disp(it)
-error = abs(1 - eigenValue)
+error = abs(min(abs(eig(A))) - abs(eigenValue))
 
+maxIT = 1000;
 A = [12,-51,4;6,167,-68;-4,24,-41]
 disp("correct eigen value 16.0600")
 disp("computed eigen value: ")
@@ -22,7 +23,7 @@ disp("computed error")
 disp(errorFun)
 disp("count of iterations")
 disp(it)
-error = abs(16.0600 - eigenValue)
+error = abs(min(abs(eig(A))) - abs(eigenValue))
 
 
 A = [2,0,0;0,2,0;0,0,1]
@@ -34,7 +35,7 @@ disp("computed error")
 disp(errorFun)
 disp("count of iterations")
 disp(it)
-error = abs(1 - eigenValue)
+error = abs(min(abs(eig(A))) - abs(eigenValue))
 
 disp("Test dla macierzy bez dominującej wartości własnej")
 A = [1,0,0,0;0,1,0,0;0,0,2,0;0,0,0,2]
@@ -46,7 +47,7 @@ disp("computed error")
 disp(errorFun)
 disp("count of iterations")
 disp(it)
-error = abs(1 - eigenValue)
+error = abs(abs(min(eig(A))) - abs(eigenValue))
 
 A = [12,0,0,0;0,41,0,0;0,0,9,0;0,0,0,1021]
 disp("correct eigen value 9")
@@ -57,7 +58,7 @@ disp("computed error")
 disp(errorFun)
 disp("count of iterations")
 disp(it)
-error = abs(9 - eigenValue)
+error = abs(min(abs(eig(A))) - abs(eigenValue))
 
 A = [4,1;2,3]
 disp("correct eigen value 2")
@@ -68,7 +69,7 @@ disp("computed error")
 disp(errorFun)
 disp("count of iterations")
 disp(it)
-error = abs(2 - eigenValue)
+error = abs(min(abs(eig(A))) - abs(eigenValue))
 
 % Macierz jest bliska jednostkowej po rozkładzie ma cond = Inf
 % chyba dobrze że się wypierdala nie da się odwrócić jej za bardzo
@@ -81,7 +82,7 @@ disp("computed error")
 disp(errorFun)
 disp("count of iterations")
 disp(it)
-error = abs(0 - eigenValue)
+error = abs(min(abs(eig(A))) - abs(eigenValue))
 
 disp("Czy metoda nie jest zbieżna, dwie najmniejsze wartości")
 A = [0,-1;1,0]
@@ -93,7 +94,7 @@ disp("computed error")
 disp(errorFun)
 disp("count of iterations")
 disp(it)
-error = abs(0-1i - eigenValue)
+error = abs(min(abs(eig(A))) - abs(eigenValue))
 
 disp("TEst")
 A = [2+i,1,0,0,1;1,3-i,1,0,0;0,1,4+3i,0,0;0,0,0,1+2i,1;1,0,0,1,5]
@@ -105,7 +106,7 @@ disp("computed error")
 disp(errorFun)
 disp("count of iterations")
 disp(it)
-error = abs(1.3935 + 0.6445i - eigenValue)
+error = abs(min(abs(eig(A))) - abs(eigenValue))
 
 disp("Czy nie jest zbieżna, dwie najmniejsze wartości")
 A = [-3 1 0; 1 0 3; 0 -3 -3]
@@ -117,7 +118,7 @@ disp("computed error")
 disp(errorFun)
 disp("count of iterations")
 disp(it)
-error = abs(-1.5000 - 2.3979i - eigenValue)
+error = abs(min(abs(eig(A))) - abs(eigenValue))
 
 disp("Czy nie jest zbieżna, dwie najmniesjsze wartości")
 A = [-3 0 0; 0 0 1; 0 -1 0]
@@ -129,4 +130,4 @@ disp("computed error")
 disp(errorFun)
 disp("count of iterations")
 disp(it)
-error = abs(0.0000 - 1.0000i - eigenValue)
+error = abs(min(abs(eig(A))) - abs(eigenValue))
