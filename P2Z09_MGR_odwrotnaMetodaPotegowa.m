@@ -46,7 +46,7 @@ function [eigenValue,error,itCount,eigenValueTab,eigenVectorTab] = ...
     % Warunek stopu to różnica między poprzednią wartością własną a 
     % aktualną
     eigenValueTab = zeros(maxIT,1);
-    eigenVectorTab = zeros(maxIT,size(A,1));
+    eigenVectorTab = zeros(size(A,1),maxIT);
     while it < maxIT && stopCondErr > epsilon
         % Normowanie wektora
         x =  x ./ norm(x,2);
@@ -59,7 +59,7 @@ function [eigenValue,error,itCount,eigenValueTab,eigenVectorTab] = ...
         % Zapisanie obliczonej wartości własnej i wektora własnego
         eigenValueTab(it+1) = 1 / eigenValue;
         for tIT=1:length(x)
-            eigenVectorTab(it+1,tIT) = x(tIT);
+            eigenVectorTab(tIT,it+1) = x(tIT);
         end
         % Aktualizacja warunku stopu
         if it > 1
@@ -77,4 +77,6 @@ function [eigenValue,error,itCount,eigenValueTab,eigenVectorTab] = ...
     eigenValue = 1 / eigenValue;
     itCount = it;
     error = stopCondErr;
+    eigenValueTab = eigenValueTab(1:it);
+    eigenVectorTab = eigenVectorTab(:,1:it);
     
