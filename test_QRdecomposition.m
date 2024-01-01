@@ -10,6 +10,7 @@ disp(A)
 [Q,R] = QRdecompositionv2(A);
 Q
 R
+input("Press Enter");
 disp("QR = ")
 disp(Q*R)
 disp("QR - A error")
@@ -26,6 +27,7 @@ disp(A)
 [Q,R] = QRdecompositionv2(A);
 Q
 R
+input("Press Enter");
 disp("QR = ")
 disp(Q*R)
 disp("QR - A error")
@@ -40,6 +42,7 @@ A = [1,1,0;-1,0,1;0,1,1;0,0,1]
 [Q,R] = QRdecompositionv2(A);
 Q
 R
+input("Press Enter");
 disp("QR = ")
 disp(Q*R)
 disp("QR - A error")
@@ -55,6 +58,7 @@ A = [3i,2-2i;4+7i,-1+5i]
 [Q,R] = QRdecompositionv2(A);
 Q
 R
+input("Press Enter");
 disp("QR = ")
 disp(Q*R)
 disp("QR - A error")
@@ -70,6 +74,7 @@ A = [4,0,0;0,1,1;0,1,1]
 [Q,R] = QRdecompositionv2(A);
 Q
 R
+input("Press Enter");
 disp("QR = ")
 disp(Q*R)
 disp("QR - A error")
@@ -84,6 +89,7 @@ A = [-3 0 0; 0 0 1; 0 -1 0]
 [Q,R] = QRdecompositionv2(A);
 Q
 R
+input("Press Enter");
 disp("QR = ")
 disp(Q*R)
 disp("QR - A error")
@@ -98,6 +104,7 @@ A = [0,-1;1,0]
 [Q,R] = QRdecompositionv2(A);
 Q
 R
+input("Press Enter");
 disp("QR = ")
 disp(Q*R)
 disp("QR - A error")
