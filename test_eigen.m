@@ -139,3 +139,29 @@ disp(errorFun)
 disp("count of iterations")
 disp(it)
 error = abs(min(abs(eig(A))) - abs(eigenValue))
+
+T = [4i,0,0;0,-4i,0;0,0,2+8i];
+P = [12 + i,2,4;8i,0,3+2i;5i,2,7];
+A = P * T * inv(P)
+disp("correct eigen value 4i")
+disp("computed eigen value: ")
+[eigenValue,errorFun,it,~,~] = P2Z09_MGR_odwrotnaMetodaPotegowa(A,1e-14,maxIT);
+disp(eigenValue)
+disp("stop condition error")
+disp(errorFun)
+disp("count of iterations")
+disp(it)
+error = abs(min(abs(eig(A))) - abs(eigenValue))
+input("press enter")
+
+T = [2-8i,0,0,0;0,-2-8i,0,0;0,0,2+8i,0;0,0,0,12];
+P = [2 + 3i,21,42,1;1i,8i-2,0,0;5i+4,2i,4,0;1,2,3,7i];
+A = P * T * inv(P);
+disp("correct eigen value 2+8i")
+[eigenValue,errorFun,it,~,~] = P2Z09_MGR_odwrotnaMetodaPotegowa(A,1e-14,maxIT);
+disp(eigenValue)
+disp("stop condition error")
+disp(errorFun)
+disp("count of iterations")
+disp(it)
+error = abs(min(abs(eig(A))) - abs(eigenValue))
